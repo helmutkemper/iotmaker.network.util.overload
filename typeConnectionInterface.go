@@ -15,4 +15,6 @@ type ConnectionInterface interface {
 	SetDelay(min, max time.Duration)
 	startTicker()
 	verify() (err error)
+	ParserReset()
+	ParserAppendTo(fn ParserFunc)
 }

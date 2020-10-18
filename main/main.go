@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/hex"
 	"fmt"
 	overload "github.com/helmutkemper/iotmaker.network.util.overload"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -25,6 +26,16 @@ func main() {
 	}
 }
 
+func binaryDump(inData []byte, inLength int, direction overload.Direction) (outData []byte, outLength int, err error) {
+	outData = inData
+	outLength = inLength
+
+	fmt.Printf("%v:\n", direction)
+	fmt.Printf("%v\n", hex.Dump(inData[:inLength]))
+
+	return
+}
+
 func testNetworkOverload(timeout time.Duration) (err error) {
 	var over = &overload.NetworkOverload{
 		ConnectionInterface: &overload.TCPConnection{},
@@ -34,7 +45,8 @@ func testNetworkOverload(timeout time.Duration) (err error) {
 		return
 	}
 
-	over.SetDelay(time.Millisecond*1, time.Millisecond*1)
+	over.ParserAppendTo(binaryDump)
+	over.SetDelay(time.Millisecond*500, time.Millisecond*1000)
 
 	go func() {
 		err = over.Listen()

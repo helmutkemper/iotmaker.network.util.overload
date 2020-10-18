@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+type ParserFunc func(inData []byte, inLength int, direction Direction) (outData []byte, outLength int, err error)
+
 type TCPConnection struct {
 	network    TypeNetwork
 	inAddress  *net.TCPAddr
@@ -15,12 +17,24 @@ type TCPConnection struct {
 	inConn     *net.TCPConn
 	outConn    *net.TCPConn
 	error      chan error
-	parser     []func(inData []byte, inLength int, direction direction) (outData []byte, outLength int, err error)
+	parser     []ParserFunc
 	inData     data
 	outData    data
 	mutex      sync.Mutex
 	ticker     *time.Ticker
 	delays     MinMax
+}
+
+func (el *TCPConnection) ParserReset() {
+	el.parser = nil
+}
+
+func (el *TCPConnection) ParserAppendTo(fn ParserFunc) {
+	if el.parser == nil {
+		el.parser = make([]ParserFunc, 0)
+	}
+
+	el.parser = append(el.parser, fn)
 }
 
 func (el *TCPConnection) verify() (err error) {
@@ -97,7 +111,7 @@ func (el *TCPConnection) outDataConnection() {
 	el.dataConnection(el.outConn, &el.outData, KDirectionOut)
 }
 
-func (el *TCPConnection) dataConnection(conn *net.TCPConn, data *data, direction direction) {
+func (el *TCPConnection) dataConnection(conn *net.TCPConn, data *data, direction Direction) {
 	go func() {
 
 		var bufferLength int
