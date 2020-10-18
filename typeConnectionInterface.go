@@ -1,5 +1,7 @@
 package iotmaker_network_util_overload
 
+import "time"
+
 type ConnectionInterface interface {
 	listenConn() (err error)
 	accept() (err error)
@@ -10,4 +12,7 @@ type ConnectionInterface interface {
 	dial() (err error)
 	setError(err error)
 	SetAddress(network TypeNetwork, inAddress, outAddress string) (err error)
+	SetDelay(min, max time.Duration)
+	startTicker()
+	verify() (err error)
 }

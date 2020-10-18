@@ -1,12 +1,19 @@
 package iotmaker_network_util_overload
 
 func (el *NetworkOverload) Listen() (err error) {
+	err = el.verify()
+	if err != nil {
+		return
+	}
+
 	el.init()
 
 	err = el.listenConn()
 	if err != nil {
 		return
 	}
+
+	el.startTicker()
 
 	for {
 		err = el.accept()

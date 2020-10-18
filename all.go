@@ -1,6 +1,7 @@
 package iotmaker_network_util_overload
 
 import (
+	"errors"
 	"net"
 	"sync"
 	"time"
@@ -20,6 +21,28 @@ type TCPConnection struct {
 	mutex      sync.Mutex
 	ticker     *time.Ticker
 	delays     MinMax
+}
+
+func (el *TCPConnection) verify() (err error) {
+	if el.delays.Min == 0 {
+		err = errors.New("please, set min and max timers")
+		return
+	}
+
+	if el.delays.Max == 0 {
+		err = errors.New("please, set min and max timers")
+		return
+	}
+
+	if el.delays.Min == el.delays.Max {
+		el.delays.Max += 1
+	}
+
+	return
+}
+
+func (el *TCPConnection) startTicker() {
+	el.ticker = el.delays.GenerateTime()
 }
 
 func (el *TCPConnection) SetDelay(min, max time.Duration) {
