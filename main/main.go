@@ -15,12 +15,20 @@ import (
 func main() {
 	var err error
 	var timeout = time.Millisecond * 1000 * 30
+	var delayMin = time.Millisecond * 500
+	var delayMax = time.Millisecond * 5000
+
 	err = testMongoDB("mongodb://127.0.0.1:27017", timeout)
 	if err != nil {
 		panic(string(debug.Stack()))
 	}
 
-	err = testNetworkOverload(timeout)
+	err = testNetworkOverload(delayMin, delayMax, "127.0.0.1:27016", "127.0.0.1:27017")
+	if err != nil {
+		panic(string(debug.Stack()))
+	}
+
+	err = testNetworkOverloaded("mongodb://127.0.0.1:27016", timeout)
 	if err != nil {
 		panic(string(debug.Stack()))
 	}
@@ -36,17 +44,17 @@ func binaryDump(inData []byte, inLength int, direction overload.Direction) (outD
 	return
 }
 
-func testNetworkOverload(timeout time.Duration) (err error) {
+func testNetworkOverload(min, max time.Duration, inAddress, outAddress string) (err error) {
 	var over = &overload.NetworkOverload{
 		ConnectionInterface: &overload.TCPConnection{},
 	}
-	err = over.SetAddress(overload.KTypeNetworkTcp, "127.0.0.1:27016", "127.0.0.1:27017")
+	err = over.SetAddress(overload.KTypeNetworkTcp, inAddress, outAddress)
 	if err != nil {
 		return
 	}
 
 	over.ParserAppendTo(binaryDump)
-	over.SetDelay(time.Millisecond*500, time.Millisecond*1000)
+	over.SetDelay(min, max)
 
 	go func() {
 		err = over.Listen()
@@ -55,67 +63,6 @@ func testNetworkOverload(timeout time.Duration) (err error) {
 		}
 	}()
 
-	start := time.Now()
-
-	fmt.Printf("conexão\n")
-
-	var mongoClient *mongo.Client
-	var ctx context.Context
-	mongoClient, err = mongo.NewClient(options.Client().ApplyURI("mongodb://127.0.0.1:27017"))
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
-
-	ctx, _ = context.WithTimeout(context.Background(), timeout)
-	err = mongoClient.Connect(ctx)
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
-
-	var cancel context.CancelFunc
-	ctx, cancel = context.WithTimeout(context.Background(), timeout)
-	err = mongoClient.Ping(ctx, readpref.Primary())
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
-	defer cancel()
-
-	err = mongoClient.Disconnect(ctx)
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
-
-	mongoClient, err = mongo.NewClient(options.Client().ApplyURI("mongodb://127.0.0.1:27016"))
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
-
-	err = mongoClient.Connect(ctx)
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
-
-	ctx, cancel = context.WithTimeout(context.Background(), timeout)
-	err = mongoClient.Ping(ctx, readpref.Primary())
-	if err != nil {
-		fmt.Printf("error: %v\n", err.Error())
-		panic(string(debug.Stack()))
-	}
-
-	type Trainer struct {
-		Name string
-		Age  int
-		City string
-	}
-	collection := mongoClient.Database("test").Collection("trainers")
-	ash := Trainer{"Ash", 10, "Pallet Town"}
-	_, err = collection.InsertOne(context.TODO(), ash)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("fim\n")
-	duration := time.Since(start)
-	fmt.Printf("Duration: %v\n\n", duration)
 	return
 }
 
@@ -142,6 +89,49 @@ func testMongoDB(address string, timeOut time.Duration) (err error) {
 	defer cancel()
 
 	err = mongoClient.Disconnect(ctx)
+
+	return
+}
+
+func testNetworkOverloaded(address string, timeout time.Duration) (err error) {
+	start := time.Now()
+
+	var mongoClient *mongo.Client
+	var cancel context.CancelFunc
+	var ctx context.Context
+
+	mongoClient, err = mongo.NewClient(options.Client().ApplyURI(address))
+	if err != nil {
+		return
+	}
+
+	err = mongoClient.Connect(ctx)
+	if err != nil {
+		return
+	}
+
+	ctx, cancel = context.WithTimeout(context.Background(), timeout)
+	defer cancel()
+
+	err = mongoClient.Ping(ctx, readpref.Primary())
+	if err != nil {
+		return
+	}
+
+	type Trainer struct {
+		Name string
+		Age  int
+		City string
+	}
+	collection := mongoClient.Database("test").Collection("trainers")
+	ash := Trainer{"Ash", 10, "Pallet Town"}
+	_, err = collection.InsertOne(context.TODO(), ash)
+	if err != nil {
+		return
+	}
+	fmt.Printf("fim\n")
+	duration := time.Since(start)
+	fmt.Printf("Duration: %v\n\n", duration)
 
 	return
 }
