@@ -22,6 +22,26 @@ type TCPConnection struct {
 	delays     MinMax
 }
 
+func (el *TCPConnection) SetDelay(min, max time.Duration) {
+	el.delays.Min = min
+	el.delays.Max = max
+}
+
+func (el *TCPConnection) SetAddress(network TypeNetwork, inAddress, outAddress string) (err error) {
+	el.inAddress, err = net.ResolveTCPAddr(network.String(), inAddress)
+	if err != nil {
+		return
+	}
+
+	el.outAddress, err = net.ResolveTCPAddr(network.String(), outAddress)
+	if err != nil {
+		return
+	}
+
+	el.network = network
+	return
+}
+
 func (el *TCPConnection) init() {
 	el.inData.init()
 	el.outData.init()

@@ -9,4 +9,5 @@ type ConnectionInterface interface {
 	init()
 	dial() (err error)
 	setError(err error)
+	SetAddress(network TypeNetwork, inAddress, outAddress string) (err error)
 }
