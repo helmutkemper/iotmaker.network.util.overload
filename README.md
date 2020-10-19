@@ -50,15 +50,15 @@ ambiente de desenvolvimento.
 package main
 
 import (
-	"context"
-	"encoding/hex"
-	"fmt"
-	overload "github.com/helmutkemper/iotmaker.network.util.overload"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.mongodb.org/mongo-driver/mongo/readpref"
-	"runtime/debug"
-	"time"
+  "context"
+  "encoding/hex"
+  "fmt"
+  overload "github.com/helmutkemper/iotmaker.network.util.overload"
+  "go.mongodb.org/mongo-driver/mongo"
+  "go.mongodb.org/mongo-driver/mongo/options"
+  "go.mongodb.org/mongo-driver/mongo/readpref"
+  "runtime/debug"
+  "time"
 )
 
 // main (English): Sample program. Creates a database named 'test' and a collection named
@@ -70,11 +70,11 @@ import (
 // tempo entre 1.5 segundos e 15 segundos, considerando uma máquina local sem muita
 // requisição de processos.
 func main() {
-	var err error
+  var err error
 
-	// (English): MongoDB timeout
-	// (Português): Tempo limite dos processos do mongoDB
-	var timeout = time.Millisecond * 1000 * 30
+  // (English): MongoDB timeout
+  // (Português): Tempo limite dos processos do mongoDB
+  var timeout = time.Millisecond * 1000 * 30
 
   // (English): Minimal delay between packages, 0.5 seconds
   // (Português): Atraso mínimo inserido entre os pacotes, 0.5 segundos
@@ -87,12 +87,12 @@ func main() {
   // (English): Test a local MongoDB connection
   // (Português): Testa a conexão com o MongoDB local
   err = testNormalMongoDB(
-	  "mongodb://127.0.0.1:27017",
-	  timeout,
+    "mongodb://127.0.0.1:27017",
+    timeout,
   )
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
+  if err != nil {
+    panic(string(debug.Stack()))
+  }
 
   // (English): Prepares to divert port 27017 to 27016.
   // Note: Every connection has a direction. In the case of a database, the connection is
@@ -104,14 +104,14 @@ func main() {
   // driver para o banco, então, o endereço de entrada deve ser o endereço do driver e o
   // endereço do banco deve ser o endereço de saída
   err = mountNetworkOverload(
-	  delayMin,
-	  delayMax,
-	  "127.0.0.1:27016",
-	  "127.0.0.1:27017",
+    delayMin,
+    delayMax,
+    "127.0.0.1:27016",
+    "127.0.0.1:27017",
   )
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
+  if err != nil {
+    panic(string(debug.Stack()))
+  }
 
   // (English): Tenta criar um novo banco de dados e coleção usando uma conexão de dados
   // mais lenta da porta 27016 para que possa haver interferência no caminho dos pacotes.
@@ -120,12 +120,12 @@ func main() {
   // dados mais lenta da porta 27016 para que possa haver interferência no caminho dos
   // pacotes.
   err = testNetworkOverloaded(
-	  "mongodb://127.0.0.1:27016",
-	  timeout,
+    "mongodb://127.0.0.1:27016",
+    timeout,
   )
-	if err != nil {
-		panic(string(debug.Stack()))
-	}
+  if err != nil {
+    panic(string(debug.Stack()))
+  }
 }
 
 // binaryDump (English): Custom function, used to interfere in the data, in case there is
@@ -161,7 +161,7 @@ func binaryDump(
   // (Português): Imprime o dado do buffer de forma humana
   fmt.Printf("%v\n", hex.Dump(inData[:inLength]))
 
-	return
+  return
 }
 
 // mountNetworkOverload (English): Assemble the proxy with the data of the new connection
@@ -178,15 +178,15 @@ func mountNetworkOverload(
   // (English): Prepare the driver for TCP network
   // (Português): Prepara o driver para rede TCP
   var over = &overload.NetworkOverload{
-		ConnectionInterface: &overload.TCPConnection{},
-	}
+    ConnectionInterface: &overload.TCPConnection{},
+  }
 
   // (English): Enables the TCP protocol and the input and output addresses
   // (Português): Habilita o protocolo TCP e os endereços de entrada e saída
   err = over.SetAddress(overload.KTypeNetworkTcp, inAddress, outAddress)
-	if err != nil {
-		return
-	}
+  if err != nil {
+    return
+  }
 
   // (English): [optional] Points to the custom function for data processing
   // (Português): [opcional] Aponta a função personalizada para tratamento dos dados
@@ -199,13 +199,13 @@ func mountNetworkOverload(
   // (English): Listen to port 27016 without blocking the code
   // (Português): Escuta a porta 27016 sem bloquear o código
   go func() {
-		err = over.Listen()
-		if err != nil {
-			panic(string(debug.Stack()))
-		}
-	}()
+    err = over.Listen()
+    if err != nil {
+      panic(string(debug.Stack()))
+    }
+  }()
 
-	return
+  return
 }
 
 // testNormalMongoDB (English): Test local MongoDB to make sure it's working
@@ -218,15 +218,15 @@ func testNormalMongoDB(
   err error,
 ) {
 
-	var mongoClient *mongo.Client
-	var ctx context.Context
+  var mongoClient *mongo.Client
+  var ctx context.Context
 
   // (English): Prepare the MongoDB client
   // (Português): Prepara o cliente do MongoDB
   mongoClient, err = mongo.NewClient(options.Client().ApplyURI(address))
-	if err != nil {
-		return
-	}
+  if err != nil {
+    return
+  }
 
   // (English): Prepares the timeout
   // (Português): Prepara o tempo limite
@@ -235,27 +235,27 @@ func testNormalMongoDB(
   // (English): Connects to MongoDB
   // (Português): Conecta ao MongoDB
   err = mongoClient.Connect(ctx)
-	if err != nil {
-		return
-	}
+  if err != nil {
+    return
+  }
 
-	var cancel context.CancelFunc
+  var cancel context.CancelFunc
 
   // (English): Ping() to ensure local MongoDB is working before testing
   // (Português): Faz um ping() para garantir que o MongoDB local está funcionando antes
   // do teste
   ctx, cancel = context.WithTimeout(context.Background(), timeOut)
   err = mongoClient.Ping(ctx, readpref.Primary())
-	if err != nil {
-		return
-	}
-	defer cancel()
+  if err != nil {
+    return
+  }
+  defer cancel()
 
   // (English): Disconnects from the bank at the end of the test
   // (Português): Desconecta do banco ao final do teste
   err = mongoClient.Disconnect(ctx)
 
-	return
+  return
 }
 
 // testNetworkOverloaded (English): Tests the new network port
@@ -271,43 +271,43 @@ func testNetworkOverloaded(
   // (Português): Começa a medição do tempo de execução
   start := time.Now()
 
-	var mongoClient *mongo.Client
-	var cancel context.CancelFunc
-	var ctx context.Context
+  var mongoClient *mongo.Client
+  var cancel context.CancelFunc
+  var ctx context.Context
 
   // (English): Prepare the MongoDB client
   // (Português): Prepara o cliente do MongoDB
   mongoClient, err = mongo.NewClient(options.Client().ApplyURI(address))
-	if err != nil {
-		return
-	}
+  if err != nil {
+    return
+  }
 
   // (English): Connects to MongoDB
   // (Português): Conecta ao MongoDB
   err = mongoClient.Connect(ctx)
-	if err != nil {
-		return
-	}
+  if err != nil {
+    return
+  }
 
   // (English): Prepares the timeout
   // (Português): Prepara o tempo limite
   ctx, cancel = context.WithTimeout(context.Background(), timeout)
-	defer cancel()
+  defer cancel()
 
   // (English): Ping() to test the MongoDB connection
   // (Português): Faz um ping() para testar a conexão do MongoDB
   err = mongoClient.Ping(ctx, readpref.Primary())
-	if err != nil {
-		return
-	}
+  if err != nil {
+    return
+  }
 
   // (English): New collection format
-	// (Português): Formato da nova coleção
-	type Trainer struct {
-		Name string
-		Age  int
-		City string
-	}
+  // (Português): Formato da nova coleção
+  type Trainer struct {
+    Name string
+    Age  int
+    City string
+  }
 
   // (English): Creates the 'test' bank and the 'dinos' collection
   // (Português): Cria o banco 'test' e a coleção 'dinos'
@@ -320,9 +320,9 @@ func testNetworkOverloaded(
   // (English): Insert the data
   // (Português): Insere os dados
   _, err = collection.InsertOne(context.TODO(), trainerData)
-	if err != nil {
-		return
-	}
+  if err != nil {
+    return
+  }
 
   // (English): Stop the operation time measurement
   // (Português): Para a medição de tempo da operação
@@ -330,7 +330,7 @@ func testNetworkOverloaded(
   fmt.Printf("End!\n")
   fmt.Printf("Duration: %v\n\n", duration)
 
-	return
+  return
 }
 ```
 
