@@ -1,4 +1,4 @@
-package iotmaker_network_util_overload
+package iotmakernetworkutiloverload
 
 func (el *NetworkOverload) Listen() (err error) {
 	err = el.verify()

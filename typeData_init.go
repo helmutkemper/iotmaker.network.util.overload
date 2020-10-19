@@ -1,4 +1,4 @@
-package iotmaker_network_util_overload
+package iotmakernetworkutiloverload
 
 func (el *data) init() {
 	el.buffer = make([][]byte, 0)

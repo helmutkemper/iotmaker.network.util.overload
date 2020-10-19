@@ -1,3 +1,3 @@
-package iotmaker_network_util_overload
+package iotmakernetworkutiloverload
 
 type TypeNetwork int

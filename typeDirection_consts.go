@@ -1,4 +1,4 @@
-package iotmaker_network_util_overload
+package iotmakernetworkutiloverload
 
 const (
 	KDirectionIn  Direction = iota

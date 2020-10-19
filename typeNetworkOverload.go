@@ -1,4 +1,4 @@
-package iotmaker_network_util_overload
+package iotmakernetworkutiloverload
 
 type NetworkOverload struct {
 	ConnectionInterface
