@@ -5,7 +5,7 @@ Simulates a slow network between two connections
 
 ```
 
- Normal use: create and insert data, ~30ms
+ Normal use: create collection and insert data, ~30ms
  +------------------+                                  +------------------+
  |                  |                                  |                  |
  |  Golang MongoDB  | -------------------------------> | MongoDB Database |
@@ -14,7 +14,7 @@ Simulates a slow network between two connections
  |                  |                                  |                  |
  +------------------+                                  +------------------+
 
- Proposed use: create and insert data, ~5s/~15s
+ Proposed use: create collection and insert data, ~5s/~15s
  +------------------+       +------------------+       +------------------+
  |                  |       |                  |       |                  |
  |  Golang MongoDB  | ----> | Network Overload | ----> | MongoDB Database |
