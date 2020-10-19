@@ -8,6 +8,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../iotmaker.network.stability.pygocentrus/typeListen.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/all.go">
           <value>
             <set />
@@ -33,7 +38,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/all.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/go.mod">
           <value>
             <set />
           </value>
@@ -104,11 +119,6 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/typeNetwork_string.go">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/GolandProjects/Libraries/src/github.com/helmutkemper/iotmaker.network.stability.pygocentrus/typeListen.go">
           <value>
             <set />
           </value>
