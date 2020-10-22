@@ -83,7 +83,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/typeDirection_String.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/typeDirection_consts.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/typeDirection_directions.go">
           <value>
             <set />
           </value>
@@ -199,6 +209,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/typeTCPConnection_startTicker.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/typeTCPConnection_transfer.go">
           <value>
             <set />
           </value>

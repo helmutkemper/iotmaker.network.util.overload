@@ -1,5 +1,8 @@
 package iotmakernetworkutiloverload
 
+// handle (English): Data connection handle
+//
+// handle (Português): Gerenciador de dados da conexão
 func (el *NetworkOverload) handle() {
 	var err error
 

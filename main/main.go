@@ -129,7 +129,7 @@ func mountNetworkOverload(
 	// (English): Prepare the driver for TCP network
 	// (Português): Prepara o driver para rede TCP
 	var over = &overload.NetworkOverload{
-		ConnectionInterface: &overload.TCPConnection{},
+		ProtocolInterface: &overload.TCPConnection{},
 	}
 
 	// (English): Enables the TCP protocol and the input and output addresses

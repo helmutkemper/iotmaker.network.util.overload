@@ -2,6 +2,9 @@ package iotmakernetworkutiloverload
 
 import "net"
 
+// (English):
+//
+// (Português):
 func (el *TCPConnection) dataConnection(conn *net.TCPConn, data *data, direction Direction) {
 	go func() {
 

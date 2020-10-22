@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+// (English):
+//
+// (Português):
 type TCPConnection struct {
 	network    TypeNetwork
 	inAddress  *net.TCPAddr
