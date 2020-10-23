@@ -2,10 +2,17 @@ package iotmakernetworkutiloverload
 
 import "net"
 
-// (English):
+// dataConnection (English): Parses between input package data, custom function and
+// package delivery address
 //
-// (Português):
-func (el *TCPConnection) dataConnection(conn *net.TCPConn, data *data, direction Direction) {
+// dataConnection (Português): Faz o parser entre o dado do pacote de entrada, a função
+// customizada e o endereço de entrega do pacote
+func (el *TCPConnection) dataConnection(
+	conn *net.TCPConn,
+	data *data,
+	direction Direction,
+) {
+
 	go func() {
 
 		var bufferLength int

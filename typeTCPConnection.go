@@ -6,9 +6,14 @@ import (
 	"time"
 )
 
-// (English):
+// TCPConnection (English): Main TCP connection object.
+//   This object receives all the necessary functions for the operation of a TCP
+//   connection and is separated from the main code so that it can be easily expanded.
 //
-// (Português):
+// TCPConnection (Português): Objeto de conexão TCP.
+//   Este objeto recebe todas as funções necessárias para o funcionamento de uma conexão
+//   TCP e fica separado do código principal para que o mesmo possa ser expandido de
+//   forma fácil.
 type TCPConnection struct {
 	network    TypeNetwork
 	inAddress  *net.TCPAddr
