@@ -1,8 +1,8 @@
 package iotmakernetworkutiloverload
 
-// (English):
+// setError (English):
 //
-// (Português):
+// setError (Português):
 func (el *TCPConnection) setError(err error) {
 	el.error <- err
 }

@@ -1,5 +1,8 @@
 package iotmakernetworkutiloverload
 
+// transfer (English):
+//
+// transfer (Português):
 func (el *TCPConnection) transfer() (err error) {
 	for {
 		select {

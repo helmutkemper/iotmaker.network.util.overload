@@ -1,8 +1,8 @@
 package iotmakernetworkutiloverload
 
-// (English): Network listen
+// Listen (English): Network listen
 //
-// (Português): Ovinte de rede
+// Listen (Português): Ovinte de rede
 func (el *NetworkOverload) Listen() (err error) {
 	err = el.verify()
 	if err != nil {

@@ -1,8 +1,8 @@
 package iotmakernetworkutiloverload
 
-// (English):
+// ParserAppendTo (English):
 //
-// (Português):
+// ParserAppendTo (Português):
 func (el *TCPConnection) ParserAppendTo(fn ParserFunc) {
 	if el.parser == nil {
 		el.parser = make([]ParserFunc, 0)

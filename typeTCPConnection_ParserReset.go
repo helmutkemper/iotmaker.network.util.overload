@@ -1,8 +1,8 @@
 package iotmakernetworkutiloverload
 
-// (English):
+// ParserReset (English):
 //
-// (Português):
+// ParserReset (Português):
 func (el *TCPConnection) ParserReset() {
 	el.parser = nil
 }

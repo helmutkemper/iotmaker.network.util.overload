@@ -2,9 +2,9 @@ package iotmakernetworkutiloverload
 
 import "net"
 
-// (English):
+// SetAddress (English):
 //
-// (Português):
+// SetAddress (Português):
 func (el *TCPConnection) SetAddress(network TypeNetwork, inAddress, outAddress string) (err error) {
 	el.inAddress, err = net.ResolveTCPAddr(network.String(), inAddress)
 	if err != nil {

@@ -2,9 +2,9 @@ package iotmakernetworkutiloverload
 
 import "time"
 
-// (English):
+// ProtocolInterface (English):
 //
-// (Português):
+// ProtocolInterface (Português):
 type ProtocolInterface interface {
 	// (English):
 	//

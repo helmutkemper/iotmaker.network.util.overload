@@ -2,9 +2,9 @@ package iotmakernetworkutiloverload
 
 import "errors"
 
-// (English):
+// verify (English):
 //
-// (Português):
+// verify (Português):
 func (el *TCPConnection) verify() (err error) {
 	if el.delays.Min == 0 {
 		err = errors.New("please, set min and max timers")
