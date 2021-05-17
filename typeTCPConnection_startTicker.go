@@ -4,5 +4,5 @@ package iotmakernetworkutiloverload
 //
 // startTicker (Português):
 func (el *TCPConnection) startTicker() {
-	el.ticker = el.delays.GenerateTime()
+	el.ticker.Reset(el.delays.GenerateTime())
 }
