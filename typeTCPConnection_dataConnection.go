@@ -17,6 +17,7 @@ func (el *TCPConnection) dataConnection(
 
 		var bufferLength int
 		var err error
+		var buffer = make([]byte, 2048)
 
 		err = conn.SetKeepAlive(true)
 		if err != nil {
@@ -24,19 +25,24 @@ func (el *TCPConnection) dataConnection(
 			return
 		}
 
+		if data.buffer == nil {
+			data.buffer = make([][]byte, 0)
+		}
+
+		if data.length == nil {
+			data.length = make([]int, 0)
+		}
+
 		for {
-			var buffer = make([]byte, 2048)
+
 			bufferLength, err = conn.Read(buffer)
 			if err != nil && err.Error() != "EOF" {
 				el.error <- err
 				return
 			}
 
-			if err != nil && err.Error() == "EOF" {
-				break
-			}
-
 			if el.parser != nil {
+				var err error
 				for _, fn := range el.parser {
 					buffer, bufferLength, err = fn(buffer, bufferLength, direction)
 					if err != nil {
@@ -46,18 +52,15 @@ func (el *TCPConnection) dataConnection(
 				}
 			}
 
-			if cap(data.buffer) == 0 {
-				data.buffer = make([][]byte, 0)
-			}
 			data.buffer = append(data.buffer, buffer[:bufferLength])
-
-			if cap(data.length) == 0 {
-				data.length = make([]int, 0)
-			}
 			data.length = append(data.length, bufferLength)
 
 			if len(data.channel) == 0 {
 				data.channel <- true
+			}
+
+			if err != nil && err.Error() == "EOF" {
+				break
 			}
 		}
 	}()

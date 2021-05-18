@@ -73,7 +73,7 @@ func main() {
 	// dados mais lenta da porta 27016 para que possa haver interferência no caminho dos
 	// pacotes.
 
-	for i := 0; i != 2; i += 1 {
+	for i := 0; i != 100; i += 1 {
 		err = testNetworkOverloaded(
 			"mongodb://127.0.0.1:27016",
 			timeout,

@@ -39,7 +39,6 @@ func (el *TCPConnection) transfer() (err error) {
 		for {
 			//select {
 			//case <-el.ticker.C:
-			el.ticker.Stop()
 			el.mutex.Lock()
 
 			for {
@@ -56,7 +55,7 @@ func (el *TCPConnection) transfer() (err error) {
 			}
 
 			el.mutex.Unlock()
-			el.ticker = el.delays.GenerateTime()
+			//el.ticker = el.delays.GenerateTime()
 
 		}
 		//}
