@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647c1477-2b69-4471-808b-315a1f034785" name="Default Changelist" comment="documenting">
-      <change afterPath="$PROJECT_DIR$/main/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/.idea/dataSources/a22e8078-3e80-443d-8e9e-c5bf3940dc21.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/main/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/main/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typeTCPConnection_transfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_transfer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621338170176</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="documenting">
+      <created>1621340717842</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621340717842</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

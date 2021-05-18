@@ -3,7 +3,7 @@ package iotmakernetworkutiloverload
 // transfer (English):
 //
 // transfer (Português):
-func (el *TCPConnection) transfer() (err error) {
+func (el *TCPConnection) transferInData() (err error) {
 	for {
 		select {
 		case <-el.inData.channel:
@@ -21,7 +21,13 @@ func (el *TCPConnection) transfer() (err error) {
 
 				el.inData.buffer = el.inData.buffer[1:]
 			}
+		}
+	}
+}
 
+func (el *TCPConnection) transferOutData() (err error) {
+	for {
+		select {
 		case <-el.ticker.C:
 			el.ticker.Stop()
 			el.mutex.Lock()

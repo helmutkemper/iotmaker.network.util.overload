@@ -29,7 +29,8 @@ type ProtocolInterface interface {
 	// (English):
 	//
 	// (Português):
-	transfer() (err error)
+	transferInData() (err error)
+	transferOutData() (err error)
 
 	// (English):
 	//

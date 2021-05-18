@@ -31,11 +31,11 @@ func main() {
 
 	// (English): Minimal delay between packages, 0.5 seconds
 	// (Português): Atraso mínimo inserido entre os pacotes, 0.5 segundos
-	var delayMin = time.Nanosecond * 300
+	var delayMin = time.Nanosecond * 10
 
 	// (English): Maximal delay between packages, 5 seconds
 	// (Português): Atraso máximo inserido entre os pacotes, 5 segundos
-	var delayMax = time.Nanosecond * 600
+	var delayMax = time.Nanosecond * 10
 
 	// (English): Test a local MongoDB connection
 	// (Português): Testa a conexão com o MongoDB local
