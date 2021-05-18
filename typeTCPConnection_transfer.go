@@ -28,7 +28,7 @@ func (el *TCPConnection) transfer() (err error) {
 
 			for {
 				if len(el.outData.buffer) == 0 {
-					el.ticker = el.delays.GenerateTime()
+					el.ticker.Reset(el.delays.GenerateTime())
 					el.mutex.Unlock()
 					break
 				}
