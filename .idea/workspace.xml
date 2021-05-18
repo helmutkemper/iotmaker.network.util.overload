@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647c1477-2b69-4471-808b-315a1f034785" name="Default Changelist" comment="documenting">
+      <change afterPath="$PROJECT_DIR$/main/.idea/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/iotmaker.network.util.overload.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/iotmaker.network.util.overload.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/testatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/testaws" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/address.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/description.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/gridfs.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/integration.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/integration/mtest.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/integration/unified.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/options.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/readconcern.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/readpref.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/writeconcern.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/go.mongodb.org/mongo-driver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeMinMax_GenerateTime.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeMinMax_GenerateTime.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typeTCPConnection_startTicker.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_startTicker.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_transfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_transfer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +37,18 @@
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../go1.16.4" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoDepProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/typeMinMax_GenerateTime.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/typeTCPConnection_startTicker.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/typeTCPConnection_transfer.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/main/main.go" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1rCyhxzZJ9u5y54c82v0grAWgCX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -24,14 +60,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="configurable..is.expanded" value="false" />
+    <property name="configurable..is.expanded" value="true" />
     <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.dep.integrator" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />

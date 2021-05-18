@@ -1,10 +1,10 @@
 package main
 
 import (
-	overload ".."
 	"context"
 	"encoding/hex"
 	"fmt"
+	overload "github.com/helmutkemper/iotmaker.network.util.overload"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -29,46 +29,11 @@ func main() {
 
 	// (English): Minimal delay between packages, 0.5 seconds
 	// (Português): Atraso mínimo inserido entre os pacotes, 0.5 segundos
-	var delayMin = time.Microsecond * 10
+	var delayMin = time.Millisecond * 500
 
 	// (English): Maximal delay between packages, 5 seconds
 	// (Português): Atraso máximo inserido entre os pacotes, 5 segundos
-	var delayMax = time.Microsecond * 10
-
-	//IN_ADDRESS=10.0.0.3:8000
-	//OUT_ADDRESS=10.0.0.2:3000
-
-	// (English): Prepare the driver for TCP network
-	// (Português): Prepara o driver para rede TCP
-	var over = &overload.NetworkOverload{
-		ProtocolInterface: &overload.TCPConnection{},
-	}
-
-	// (English): Enables the TCP protocol and the input and output addresses
-	// (Português): Habilita o protocolo TCP e os endereços de entrada e saída
-	err = over.SetAddress(overload.KTypeNetworkTcp, "0.0.0.0:8000", "0.0.0.0:3000")
-	if err != nil {
-		return
-	}
-
-	// (English): [optional] Points to the custom function for data processing
-	// (Português): [opcional] Aponta a função personalizada para tratamento dos dados
-	//over.ParserAppendTo(binaryDump)
-
-	// (English): Determines the maximum and minimum times between packages
-	// (Português): Determina os tempos máximo e mínimos entre os pacotes
-	over.SetDelay(delayMin, delayMax)
-
-	// (English): Listen to port 27016 without blocking the code
-	// (Português): Escuta a porta 27016 sem bloquear o código
-	err = over.Listen()
-	if err != nil {
-		panic(err)
-	}
-
-	return
-
-	//--------------------------------------------------------------------------------
+	var delayMax = time.Millisecond * 5000
 
 	// (English): Test a local MongoDB connection
 	// (Português): Testa a conexão com o MongoDB local

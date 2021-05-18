@@ -24,11 +24,11 @@ func (el *TCPConnection) transfer() (err error) {
 
 		case <-el.ticker.C:
 			el.mutex.Lock()
-			//el.ticker = nil
+			el.ticker.Stop()
 
 			for {
 				if len(el.outData.buffer) == 0 {
-					el.ticker.Reset(el.delays.GenerateTime())
+					el.ticker = el.delays.GenerateTime()
 					el.mutex.Unlock()
 					break
 				}
