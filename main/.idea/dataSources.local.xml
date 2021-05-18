@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="GO-211.7142.13">
-    <data-source name="@localhost" uuid="95a20d27-a7a7-49d0-bb93-11872b1edd85">
+    <data-source name="@localhost" uuid="7d7693e1-67b2-477c-a9b4-85ff80119c92">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" exact-version="0" />
       <secret-storage>master_key</secret-storage>
       <schema-mapping />

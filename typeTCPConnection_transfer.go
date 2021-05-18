@@ -2,7 +2,6 @@ package iotmakernetworkutiloverload
 
 import (
 	"sync"
-	"time"
 )
 
 // transfer (English):
@@ -58,7 +57,7 @@ func (el *TCPConnection) transfer() (err error) {
 
 			el.mutex.Unlock()
 			el.ticker = el.delays.GenerateTime()
-			time.Sleep(time.Millisecond * 10)
+
 		}
 		//}
 	}()
