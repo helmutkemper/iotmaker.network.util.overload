@@ -2,6 +2,7 @@ package iotmakernetworkutiloverload
 
 import (
 	"sync"
+	"time"
 )
 
 // transfer (English):
@@ -37,28 +38,29 @@ func (el *TCPConnection) transfer() (err error) {
 		defer wg.Done()
 
 		for {
-			select {
-			case <-el.ticker.C:
-				el.ticker.Stop()
-				el.mutex.Lock()
+			//select {
+			//case <-el.ticker.C:
+			el.ticker.Stop()
+			el.mutex.Lock()
 
-				for {
-					if len(el.outData.buffer) == 0 {
-						break
-					}
-
-					_, err = el.inConn.Write(el.outData.buffer[0])
-					if err != nil {
-						return
-					}
-
-					el.outData.buffer = el.outData.buffer[1:]
+			for {
+				if len(el.outData.buffer) == 0 {
+					break
 				}
 
-				el.mutex.Unlock()
-				el.ticker = el.delays.GenerateTime()
+				_, err = el.inConn.Write(el.outData.buffer[0])
+				if err != nil {
+					return
+				}
+
+				el.outData.buffer = el.outData.buffer[1:]
 			}
+
+			el.mutex.Unlock()
+			el.ticker = el.delays.GenerateTime()
+			time.Sleep(time.Millisecond * 10)
 		}
+		//}
 	}()
 
 	wg.Wait()
