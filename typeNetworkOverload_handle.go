@@ -15,13 +15,7 @@ func (el *NetworkOverload) handle() {
 	el.inDataConnection()
 	el.outDataConnection()
 
-	err = el.transferInData()
-	if err != nil {
-		el.setError(err)
-		return
-	}
-
-	err = el.transferOutData()
+	err = el.transfer()
 	if err != nil {
 		el.setError(err)
 		return

@@ -1,52 +1,66 @@
 package iotmakernetworkutiloverload
 
+import (
+	"sync"
+)
+
 // transfer (English):
 //
 // transfer (Português):
-func (el *TCPConnection) transferInData() (err error) {
-	for {
-		select {
-		case <-el.inData.channel:
-			el.mutex.Lock()
-			for {
-				if len(el.inData.buffer) == 0 {
-					el.mutex.Unlock()
-					break
-				}
+func (el *TCPConnection) transfer() (err error) {
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
 
-				_, err = el.outConn.Write(el.inData.buffer[0])
-				if err != nil {
-					return
-				}
+		for {
+			select {
+			case <-el.inData.channel:
+				el.mutex.Lock()
+				for {
+					if len(el.inData.buffer) == 0 {
+						el.mutex.Unlock()
+						break
+					}
 
-				el.inData.buffer = el.inData.buffer[1:]
+					_, err = el.outConn.Write(el.inData.buffer[0])
+					if err != nil {
+						return
+					}
+
+					el.inData.buffer = el.inData.buffer[1:]
+				}
 			}
 		}
-	}
-}
+	}()
+	go func() {
+		defer wg.Done()
 
-func (el *TCPConnection) transferOutData() (err error) {
-	for {
-		select {
-		case <-el.ticker.C:
-			el.ticker.Stop()
-			el.mutex.Lock()
+		for {
+			select {
+			case <-el.ticker.C:
+				el.ticker.Stop()
+				el.mutex.Lock()
 
-			for {
-				if len(el.outData.buffer) == 0 {
-					break
+				for {
+					if len(el.outData.buffer) == 0 {
+						break
+					}
+
+					_, err = el.inConn.Write(el.outData.buffer[0])
+					if err != nil {
+						return
+					}
+
+					el.outData.buffer = el.outData.buffer[1:]
 				}
 
-				_, err = el.inConn.Write(el.outData.buffer[0])
-				if err != nil {
-					return
-				}
-
-				el.outData.buffer = el.outData.buffer[1:]
+				el.mutex.Unlock()
+				el.ticker = el.delays.GenerateTime()
 			}
-
-			el.mutex.Unlock()
-			el.ticker = el.delays.GenerateTime()
 		}
-	}
+	}()
+
+	wg.Wait()
+	return
 }
