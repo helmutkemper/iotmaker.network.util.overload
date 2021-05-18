@@ -23,13 +23,11 @@ func (el *TCPConnection) transfer() (err error) {
 			}
 
 		case <-el.ticker.C:
-			el.mutex.Lock()
 			el.ticker.Stop()
+			el.mutex.Lock()
 
 			for {
 				if len(el.outData.buffer) == 0 {
-					el.ticker = el.delays.GenerateTime()
-					el.mutex.Unlock()
 					break
 				}
 
@@ -40,6 +38,9 @@ func (el *TCPConnection) transfer() (err error) {
 
 				el.outData.buffer = el.outData.buffer[1:]
 			}
+
+			el.mutex.Unlock()
+			el.ticker = el.delays.GenerateTime()
 		}
 	}
 }

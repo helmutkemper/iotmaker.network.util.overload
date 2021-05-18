@@ -8,7 +8,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
+	"log"
 	"runtime/debug"
+	"sync"
 	"time"
 )
 
@@ -25,15 +27,15 @@ func main() {
 
 	// (English): MongoDB timeout
 	// (Português): Tempo limite dos processos do mongoDB
-	var timeout = time.Millisecond * 1000 * 30
+	var timeout = time.Millisecond * 100 * 30
 
 	// (English): Minimal delay between packages, 0.5 seconds
 	// (Português): Atraso mínimo inserido entre os pacotes, 0.5 segundos
-	var delayMin = time.Millisecond * 500
+	var delayMin = time.Nanosecond * 300
 
 	// (English): Maximal delay between packages, 5 seconds
 	// (Português): Atraso máximo inserido entre os pacotes, 5 segundos
-	var delayMax = time.Millisecond * 5000
+	var delayMax = time.Nanosecond * 600
 
 	// (English): Test a local MongoDB connection
 	// (Português): Testa a conexão com o MongoDB local
@@ -70,13 +72,22 @@ func main() {
 	// (Português): Tenta criar um novo banco de dados e coleção usando uma conexão de
 	// dados mais lenta da porta 27016 para que possa haver interferência no caminho dos
 	// pacotes.
-	err = testNetworkOverloaded(
-		"mongodb://127.0.0.1:27016",
-		timeout,
-	)
-	if err != nil {
-		panic(string(debug.Stack()))
+
+	for i := 0; i != 100; i += 1 {
+		err = testNetworkOverloaded(
+			"mongodb://127.0.0.1:27016",
+			timeout,
+		)
+		if err != nil {
+			log.Printf("error: %v", err.Error())
+			log.Printf("%v", string(debug.Stack()))
+		}
 	}
+
+	log.Printf("fim !!!!!!!!!!!!!!")
+	var wg sync.WaitGroup
+	wg.Add(1)
+	wg.Wait()
 }
 
 // binaryDump (English): Custom function, used to interfere in the data, in case there is
@@ -141,7 +152,7 @@ func mountNetworkOverload(
 
 	// (English): [optional] Points to the custom function for data processing
 	// (Português): [opcional] Aponta a função personalizada para tratamento dos dados
-	over.ParserAppendTo(binaryDump)
+	//over.ParserAppendTo(binaryDump)
 
 	// (English): Determines the maximum and minimum times between packages
 	// (Português): Determina os tempos máximo e mínimos entre os pacotes
@@ -278,8 +289,7 @@ func testNetworkOverloaded(
 	// (English): Stop the operation time measurement
 	// (Português): Para a medição de tempo da operação
 	duration := time.Since(start)
-	fmt.Printf("End!\n")
-	fmt.Printf("Duration: %v\n\n", duration)
+	fmt.Printf("Duration: %v\n", duration)
 
 	return
 }
