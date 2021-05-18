@@ -29,9 +29,9 @@ func (el *TCPConnection) dataConnection(
 			data.buffer = make([][]byte, 0)
 		}
 
-		if data.length == nil {
-			data.length = make([]int, 0)
-		}
+		//if data.length == nil {
+		//	data.length = make([]int, 0)
+		//}
 
 		for {
 
@@ -41,8 +41,11 @@ func (el *TCPConnection) dataConnection(
 				return
 			}
 
+			if err != nil && err.Error() == "EOF" {
+				break
+			}
+
 			if el.parser != nil {
-				var err error
 				for _, fn := range el.parser {
 					buffer, bufferLength, err = fn(buffer, bufferLength, direction)
 					if err != nil {
@@ -53,15 +56,12 @@ func (el *TCPConnection) dataConnection(
 			}
 
 			data.buffer = append(data.buffer, buffer[:bufferLength])
-			data.length = append(data.length, bufferLength)
+			//data.length = append(data.length, bufferLength)
 
 			if len(data.channel) == 0 {
 				data.channel <- true
 			}
 
-			if err != nil && err.Error() == "EOF" {
-				break
-			}
 		}
 	}()
 }

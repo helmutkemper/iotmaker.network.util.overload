@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647c1477-2b69-4471-808b-315a1f034785" name="Default Changelist" comment="working">
-      <change afterPath="$PROJECT_DIR$/main/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/main/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/main/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeData.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeData.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typeTCPConnection_dataConnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_dataConnection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typeTCPConnection_startTicker.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_startTicker.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typeTCPConnection_transfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_transfer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621345883568</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="working">
+      <created>1621347042968</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1621347042968</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

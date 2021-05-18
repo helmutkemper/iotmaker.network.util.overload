@@ -17,5 +17,5 @@ type data struct {
 	// length (English): buffer length
 	//
 	// length (Português): tamanho do buffer
-	length []int
+	//length []int
 }
