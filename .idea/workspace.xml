@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647c1477-2b69-4471-808b-315a1f034785" name="Default Changelist" comment="documenting">
-      <change afterPath="$PROJECT_DIR$/bin/testatlas" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/testaws" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/address.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/description.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/gridfs.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/integration.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/integration/mtest.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/integration/unified.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/options.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/readconcern.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/readpref.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/darwin_arm64/go.mongodb.org/mongo-driver/mongo/writeconcern.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/go.mongodb.org/mongo-driver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typeNetworkOverload_Listen.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeNetworkOverload_Listen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typeTCPConnection_transfer.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_transfer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_startTicker.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_startTicker.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +38,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -101,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621300130263</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="documenting">
+      <created>1621305018656</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621305018656</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
