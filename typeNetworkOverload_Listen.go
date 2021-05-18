@@ -10,13 +10,12 @@ func (el *NetworkOverload) Listen() (err error) {
 	}
 
 	el.init()
+	el.startTicker()
 
 	err = el.listenConn()
 	if err != nil {
 		return
 	}
-
-	el.startTicker()
 
 	for {
 		err = el.accept()

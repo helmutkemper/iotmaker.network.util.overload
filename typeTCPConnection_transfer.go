@@ -24,7 +24,7 @@ func (el *TCPConnection) transfer() (err error) {
 
 		case <-el.ticker.C:
 			el.mutex.Lock()
-			el.ticker = nil
+			//el.ticker = nil
 
 			for {
 				if len(el.outData.buffer) == 0 {
