@@ -136,7 +136,7 @@ func mountNetworkOverload(
 ) (
 	err error,
 ) {
-
+	return
 	// (English): Prepare the driver for TCP network
 	// (Português): Prepara o driver para rede TCP
 	var over = &overload.NetworkOverload{

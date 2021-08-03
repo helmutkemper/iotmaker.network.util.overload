@@ -2,30 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="647c1477-2b69-4471-808b-315a1f034785" name="Default Changelist" comment="working">
-      <change beforePath="$PROJECT_DIR$/main/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/main/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/main/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/linear/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeConnectionInterface.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeConnectionInterface.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/typeData.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeData.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/typeTCPConnection_dataConnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection_dataConnection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeData_init.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeDirection.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeDirection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeDirection_consts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeDirection_directions.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeMinMax.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeMinMax.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeMinMax_GenerateTime.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeNetwork.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeNetwork.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeNetworkOverload.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeNetworkOverload_Listen.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeNetworkOverload_handle.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeNetwork_consts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/typeTCPConnection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_ParserAppendTo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_ParserReset.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_SetAddress.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_SetDelay.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_accept.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_dataConnection.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_dial.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_inDataConnection.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_init.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_listenConn.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_outDataConnection.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_setError.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_startTicker.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_transfer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeTCPConnection_verify.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" url="file://$PROJECT_DIR$/../../go1.16.4" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../go1.16.4" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoDepProject">
     <integration-enabled>true</integration-enabled>
   </component>
-  <component name="GoLibraries">
-    <option name="indexEntireGoPath" value="false" />
-  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/typeMinMax_GenerateTime.go" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/typeTCPConnection_startTicker.go" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/typeTCPConnection_transfer.go" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/main/main.go" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1rCyhxzZJ9u5y54c82v0grAWgCX" />
@@ -39,9 +72,10 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mongo" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable..is.expanded" value="true" />
     <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
@@ -57,7 +91,16 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build github.com/helmutkemper/iotmaker.network.util.overload/linear">
+    <configuration name="go build github.com/helmutkemper/iotmaker.network.util.overload/linear" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="iotmaker.network.util.overload" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/helmutkemper/iotmaker.network.util.overload/linear" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/linear/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="iotmaker.network.util.overload" />
       <working_directory value="$PROJECT_DIR$" />
@@ -68,6 +111,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/helmutkemper/iotmaker.network.util.overload/linear" />
         <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
@@ -179,7 +223,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621347042968</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="working">
+      <created>1621347395289</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1621347395289</updated>
+    </task>
+    <task id="LOCAL-00016" summary="working">
+      <created>1621347533878</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1621347533878</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +259,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/src/github.com/helmutkemper/iotmaker.network.util.overload" />
+      <path value="$PROJECT_DIR$/src/go.mongodb.org/mongo-driver" />
     </ignored-roots>
     <MESSAGE value="documenting" />
     <MESSAGE value="working" />

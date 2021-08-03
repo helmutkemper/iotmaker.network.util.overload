@@ -17,5 +17,11 @@ type data struct {
 	// length (English): buffer length
 	//
 	// length (Português): tamanho do buffer
-	//length []int
+	length []int
+}
+
+func (el *data) init() {
+	el.buffer = make([][]byte, 0)
+	el.channel = make(chan bool, 1)
+	el.length = make([]int, 0)
 }
